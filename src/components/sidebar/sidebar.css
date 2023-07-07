@@ -32,6 +32,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    padding-top: 10px;
   }
   
   .sidebarIcon {
@@ -55,3 +56,11 @@
     margin: 0;
     list-style: none;
   }
+
+  .icono-home{
+    display: flex;
+    flex-direction: row;
+    margin-right: 10px;
+    margin-left: 5px;
+  }
+  
