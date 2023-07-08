@@ -5,7 +5,7 @@ export default function Login(){
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-body-tertiary"> 
             <div className="container-fluid flex-nowrap">
-              <a className="navbar-brand" href="sesionnoiniciada.html"><img class="navbar1__logo"  src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"/></a>
+              <a className="navbar-brand" href="sesionnoiniciada.html"><img className="navbar1__logo"  src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"/></a>
                 <div className="d-flex justify-content-between w-100">
                     <form className="d-flex" role="search">
                         <div className="searchbar__bar input-group d-none d-md-block">
@@ -57,35 +57,35 @@ export default function Login(){
                 <div className="row">
                     <div className="col-2"></div>
                     <div className="col-8"> 
-                    <form action="" method="" id="formulario-form" class="row g-3 needs-validation" novalidate>
+                    <form action="" method="" id="formulario-form" className="row g-3 needs-validation" novalidate>
                     <div className="row mb-3">
                                 <div className="form-group">
-                                    <label for="InputEmail" class="col-sm-2 "><strong>Email </strong></label>
-                                    <input type="email" id="InputEmail" class="form-control form-control-sm col-sm-10" required />
+                                    <label for="InputEmail" className="col-sm-2 "><strong>Email </strong></label>
+                                    <input type="email" id="InputEmail" className="form-control form-control-sm col-sm-10" required />
                                 </div>
-                                <div class="form-group">
-                                    <label for="InputPassword" class="col-sm-2 "><strong> Password</strong></label>
-                                    <input type="password" id="InputPassword" class="form-control form-control-sm col-sm-10" required/>
+                                <div className="form-group">
+                                    <label for="InputPassword" className="col-sm-2 "><strong> Password</strong></label>
+                                    <input type="password" id="InputPassword" className="form-control form-control-sm col-sm-10" required/>
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-10">
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck1" required/>
-                                    <label class="form-check-label" for="gridCheck1">
+                            <div className="row mb-3">
+                                <div className="col-sm-10">
+                                    <div className="form-check">
+                                    <input className="form-check-input" type="checkbox" id="gridCheck1" required/>
+                                    <label className="form-check-label" for="gridCheck1">
                                         Remember me
                                     </label>
                                     </div>
                                 </div>
                             </div>  
-                            <div class="d-grid gap-2">
-                                <button type="button" id="continueButton" class="btn btn-purple2" > Continue </button>
+                            <div className="d-grid gap-2">
+                                <button type="button" id="continueButton" className="btn btn-purple2" > Continue </button>
                             </div>
-                            <div class="textCenter"> <a className='textCenter' href="#" target="_blank"> I forgot my password </a> </div>
+                            <div className="textCenter"> <a className='textCenter' href="#" target="_blank"> I forgot my password </a> </div>
                             <div id="alertSesion"> </div>
                     </form>
                     </div>
-                    <div class="col-2"></div>
+                    <div className="col-2"></div>
                 </div>  
                 </div>    
             </div>        

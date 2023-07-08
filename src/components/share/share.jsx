@@ -1,6 +1,6 @@
 import React from 'react'
 import './share.css'
-import {PermMedia, Label,Room, EmojiEmotions} from "@mui/icons-material"
+
 
 export default function Share(){
 return(
@@ -18,7 +18,7 @@ return(
                     </li>
                 </ul>
                 <div className="card post-card mb-3">
-                    <img src="https://picsum.photos/400/200" class="card-img-top w-100 post-card__preview-image" 
+                    <img src="https://picsum.photos/400/200" className="card-img-top w-100 post-card__preview-image" 
                      alt="..."/>
                     <div className="card-body">
                         <div className="author-data d-flex gap-3 align-items-center">

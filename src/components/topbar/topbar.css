@@ -98,7 +98,7 @@
 .searchinput{
     border:none;
     width:90%;
-    background-color: white;
+    background-color: transparent;
 
 }
 .searchinput:focus{

@@ -27,8 +27,8 @@ export default function Form(){
             <div className="container pt-5">
             <div className="row">  
                         
-            <div class="container">
-            <div class="col-lg-12 col-md-9 col-lg-6">
+            <div classname="container">
+            <div classname="col-lg-12 col-md-9 col-lg-6">
                 <div className="contaier-info">
                     <div className="row">
                         <div className="col-2"></div>
@@ -37,28 +37,28 @@ export default function Form(){
                                 <h1 className="strong">Create your own Post</h1>
                             </div>
                         
-                            <div class="row">
-                        <div class="col-12 col-md-5">
-                            <form id="Postcard-form" action="" class="bg-dark text-white border rounded p-3 mb-3">
-                                <div class="form-group mb-3">
+                            <div className="row">
+                        <div className="col-12 col-md-5">
+                            <form id="Postcard-form" action="" className="bg-dark text-white border rounded p-3 mb-3">
+                                <div className="form-group mb-3">
                                     <label for="">autor</label>
-                                    <input name="autor" id="autor" type="text" class="form-control" placeholder="autor"/>
+                                    <input name="autor" id="autor" type="text" className="form-control" placeholder="autor"/>
                                 </div>
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <label for="">titulo</label>
-                                    <input name="titulo" id="titulo" type="text" class="form-control" placeholder="titulo"/>
+                                    <input name="titulo" id="titulo" type="text" className="form-control" placeholder="titulo"/>
                                 </div>
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <label for="">TAGS</label>
-                                    <input name="tags" id="tags" type="text" class="form-control" placeholder="pon tu Tag"/>
+                                    <input name="tags" id="tags" type="text" className="form-control" placeholder="pon tu Tag"/>
                                 </div>
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <label for="">Foto</label>
-                                    <input name="picture" id="picture" type="text" class="form-control"/>
+                                    <input name="picture" id="picture" type="text" className="form-control"/>
                                 </div>
-                                <div class="form-group mb-3">
+                                <div className="form-group mb-3">
                                     <label for="">PostBody</label> 
-                                <input type="text" class="form-control" id="postBody" name="postBody" placeholder="postbody"/>
+                                <input type="text" className="form-control" id="postBody" name="postBody" placeholder="postbody"/>
                                 </div>
                                 <div className='haciendoFlex'>
                                 <button className='save-card'>save card</button>
