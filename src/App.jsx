@@ -1,7 +1,8 @@
 import Home from "./pages/home/home"
+import Login from "./pages/login/login";
 
 function App() {
-  return <Home/>
+  return <Login/>
 }
 
 export default App;
