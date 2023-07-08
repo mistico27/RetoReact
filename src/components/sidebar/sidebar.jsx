@@ -144,7 +144,7 @@ return(
                         </button>
                     </div>    
                     <p>
-                        DEV runs on 100% open source code knows as <a class="a-except" href="#">Forem</a>
+                        DEV runs on 100% open source code knows as <a className="a-except" href="#">Forem</a>
                     </p>
                     <p>
                         Contribute to the codebase or your own!
@@ -154,7 +154,7 @@ return(
                     </p>
                     <ul>
                         <li className="estilo-list">
-                            <a class="a-except-1" href="#">Main Forem Repo</a>
+                            <a className="a-except-1" href="#">Main Forem Repo</a>
                         </li>
                         <li className="estilo-list">
                             <a className="a-except-1" href="#">Self-Host Instructions</a>
@@ -163,7 +163,10 @@ return(
                         
                 </div> 
 
+                
+
         <hr className="sidebarHr" />
+        <button className="sidebarButton">Top 10 profiles</button>
         <ul className="sidebarFriendList">
         {Users.map((u) => (
             <CloseFriend key={u.id} user={u} />
