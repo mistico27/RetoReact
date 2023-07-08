@@ -661,4 +661,15 @@
     color: rgb(59, 59, 246);
     text-decoration: underline;
   }
+  .textCenter:hover{
+    color:#2f3ab2;
+  }
   
+  .col-8{
+    background-color: white;
+    padding-top: 24px;
+  }
+
+  .greenAqua{
+    background-color: #0a3e4a;
+  }

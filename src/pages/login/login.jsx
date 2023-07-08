@@ -5,7 +5,7 @@ export default function Login(){
         <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-body-tertiary"> 
             <div className="container-fluid flex-nowrap">
-              <a className="navbar-brand" href="sesionnoiniciada.html"><img class="navbar1__logo"  src="assets/resized_logo_UQww2soKuUsjaOGNB38o.png"/></a>
+              <a className="navbar-brand" href="sesionnoiniciada.html"><img class="navbar1__logo"  src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"/></a>
                 <div className="d-flex justify-content-between w-100">
                     <form className="d-flex" role="search">
                         <div className="searchbar__bar input-group d-none d-md-block">
@@ -38,28 +38,28 @@ export default function Login(){
                         
                             <div>
                                 <div class="d-grid gap-2">
-                                    <button className="btn btn-dark" type="button"><i class="fa-brands fa-apple"></i>  Continue with Apple</button>
-                                    <button classname="btn btn-greenAqua" type="button"><i class="fa-sharp fa-solid fa-recycle"></i>  Continue with Forem</button>
-                                    <button classname="btn btn-gray2" type="button"><i class="fa-brands fa-github"></i>  Continue with GitHub</button>
-                                    <button classname="btn btn-blue2" type="button"><i class="fa-brands fa-twitter"></i>  Continue with Twitter</button>
+                                    <button className="btn btn-dark" type="button"><i className="fa-brands fa-apple"></i>  Continue with Apple</button>
+                                    <button className="btn btn-greenAqua" type="button"><i className="fa-sharp fa-solid fa-recycle"></i>  Continue with Forem</button>
+                                    <button className="btn btn-gray2" type="button"><i className="fa-brands fa-github"></i>  Continue with GitHub</button>
+                                    <button className="btn btn-blue2" type="button"><i className="fa-brands fa-twitter"></i>  Continue with Twitter</button>
                                 </div>
                             </div>
                             
-                            <div classname="lineGray">
-                                <p classname="lineGray"> Have a password? Continue with your email addres </p>
+                            <div classame="lineGray">
+                                <p className="lineGray"> Have a password? Continue with your email addres </p>
                             </div>
                         </div>
                         
                     </div>
-                    <div class="col-2 "></div>
+                    <div className="col-2 "></div>
                 </div>
                 
-                <div class="row">
-                    <div class="col-2"></div>
-                    <div class="col-8"> 
+                <div className="row">
+                    <div className="col-2"></div>
+                    <div className="col-8"> 
                     <form action="" method="" id="formulario-form" class="row g-3 needs-validation" novalidate>
-                    <div class="row mb-3">
-                                <div class="form-group">
+                    <div className="row mb-3">
+                                <div className="form-group">
                                     <label for="InputEmail" class="col-sm-2 "><strong>Email </strong></label>
                                     <input type="email" id="InputEmail" class="form-control form-control-sm col-sm-10" required />
                                 </div>
@@ -81,7 +81,7 @@ export default function Login(){
                             <div class="d-grid gap-2">
                                 <button type="button" id="continueButton" class="btn btn-purple2" > Continue </button>
                             </div>
-                            <div class="textCenter"> <a href="#" target="_blank"> I forgot my password </a> </div>
+                            <div class="textCenter"> <a className='textCenter' href="#" target="_blank"> I forgot my password </a> </div>
                             <div id="alertSesion"> </div>
                     </form>
                     </div>
@@ -90,6 +90,7 @@ export default function Login(){
                 </div>    
             </div>        
         </div>
+        
         </div>
 
         </div>
