@@ -1,32 +1,54 @@
 import React from 'react'
 import './post.css'
 import {MoreVert} from "@mui/icons-material"
-import {Users} from '../../dummyData'
-import {useState} from 'react'
 
-export default function Post({post}){
-    const [like,setLike]=useState(post.like);
+import {useState,useEffect} from 'react'
+
+
+export default function Post({posts}){
+    const [like,setLike]=useState(posts.likes);
     const [isLiked,setIsLiked]=useState(false);
+    const getMytoken = localStorage.getItem("token");
+    const baseURL = "http://localhost:8800";
+    const[user,setUser]=useState([])
+    useEffect(()=>{
+        fetch(`${baseURL}/users`,{
+            method: "GET",
+            headers: { "Content-Type": "application/json", "Authorization":`Bearer ${getMytoken}` },
+        })
+        .then(res=>res.json())
+        .then(
+            res=>setUser(res.data),
+            );
+        
+    },[posts.userId])
+
+    Array.isArray(user)
+    
+    const getProfilePicture=()=>{
+        for(let i=0; i<user.length; i++){
+            if(posts.userId===user[i].id){
+                   return user[i].profilePicture; 
+            }
+        }
+    }
+
+    const getName=()=>{
+        for(let i=0; i<user.length; i++){
+            if(posts.userId===user[i].id){
+                   return user[i].username; 
+            }
+        }
+    }
 
     const likeHandler =()=>{
         setLike(isLiked ? like-1:like+1)
         setIsLiked(!isLiked)
     }
-    const getName=()=>{
-        for(let i=0; i<Users.length; i++){
-            if(post.userId===Users[i].id){
-                   return Users[i].username; 
-            }
-        }
-    }
     
-    ///get profilePhoto
-    const getProfilePicture=()=>{
-        for(let i=0; i<Users.length; i++){
-            if(post.userId===Users[i].id){
-                   return Users[i].profilePicture; 
-            }
-        }
+    const goToEdit=()=>{
+        window.location.replace(`/edit?postCardId=${posts._id}`);
+        localStorage.setItem( "postCardId", JSON. stringify(posts._id));
     }
 
 return(
@@ -38,24 +60,27 @@ return(
                     <span className='postUserName'>
                     {getName()}
                     </span>
-                    <span className='postDate'>{post.date}</span>
+                    <span className='postDate'>{posts.createdAt}</span>
                 </div>
                 <div className="postTopRight">
                     <MoreVert/>
+                    <button className='Edit card' onClick={goToEdit}>Edit Card</button>
                 </div>
             </div>
+            <span className="postText"> {posts.title}</span>
             <div className="postCenter">
-                <span className="postText">{post?.desc}</span>
-                <img className='postImg' src={post.photo} alt="" />
+            
+                <span className="postText">{posts?.desc}</span>
+                <img className='postImg'  alt="" />
             </div>
             <div className="postBottom">
                 <div className="postBottomLeft">
-                    <img className='likeIcon' src="/assets/emoticons/like.png" onClick={likeHandler} alt="" />
-                    <img className='likeIcon' src="/assets/emoticons/megusta.png" onClick={likeHandler}  alt="" />
-                    <span className="postLikeCounter">{like} </span>
+                    <img className='likeIcon' src="src/assets/like.png"  onClick={likeHandler} alt="" />
+                    <img className='likeIcon' src="src/assets/megusta.png"  onClick={likeHandler} alt="" />
+                    <span className="postLikeCounter">{like}</span>
                 </div>
                 <div className="postBottomRight"></div>
-                <span className="postCommentText">{post.comment} comments</span>
+                <span className="postCommentText"> comments</span>
             </div>
            </div>
         </div>
