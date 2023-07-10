@@ -51,6 +51,23 @@ export default function Post({posts}){
         localStorage.setItem( "postCardId", JSON. stringify(posts._id));
     }
 
+
+    const Removefunction = () => {
+        let mypostId= posts._id;
+        console.log(mypostId)
+        if (window.confirm('Do you want to remove?')) {
+            fetch(`${baseURL}/posts/${mypostId}`, {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json", "Authorization":`Bearer ${getMytoken}` },
+            }).then((res) => {
+                alert('Removed successfully.')
+                window.location.reload();
+            }).catch((err) => {
+                console.log(err.message)
+            })
+        }
+    }
+
 return(
         <div className='post'>
            <div className="postWrapper">
@@ -65,6 +82,7 @@ return(
                 <div className="postTopRight">
                     <MoreVert/>
                     <button className='Edit card' onClick={goToEdit}>Edit Card</button>
+                    <button className='Delete card' onClick={Removefunction}>Delete Card</button>
                 </div>
             </div>
             <span className="postText"> {posts.title}</span>
