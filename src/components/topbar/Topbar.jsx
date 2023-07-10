@@ -31,7 +31,6 @@ export default function Topbar(){
   const handleChange = (event) => {
     
     setSearch (event.target.value);
-    console.log(search);
     let postEncontrados=posts.filter(post=>{
       return post.title.toLowerCase().includes(search.toLowerCase());
     });
