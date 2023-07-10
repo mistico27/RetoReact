@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import {useForm} from 'react-hook-form';
+import { useNavigate} from "react-router-dom";
 export default function Edit(){
      const getMytoken = localStorage.getItem("token");
-     const[posts,setPosts]=useState([]);
+     
      const baseURL = "http://localhost:8800";
      const getMyId = localStorage.getItem("postCardId");
     
     let getMyIdII =getMyId.replace(/['"]+/g, '');
+    console.log(getMyIdII)
 
     useEffect(()=>{
         fetch(`${baseURL}/posts/${getMyIdII}`,{
@@ -14,37 +15,48 @@ export default function Edit(){
             headers: { "Content-Type": "application/json", "Authorization":`Bearer ${getMytoken}` },
         })
         .then(res=>res.json())
-        .then(
-            res=>setPosts(res.data),
-            );
-        },[posts.userId])       
+        .then((resp) => {
+            idchange(resp.data.id);
+            titlechange(resp.data.title);
+            deschange(resp.data.desc);
+            imgchange(resp.data.img);
+            console.log(resp);
+        }).catch((err) => {
+            console.log(err.message);
+        })
+    }, []);   
 
+    const[id,idchange]=useState("");
+    const[title,titlechange]=useState("");
+    const[desc,deschange]=useState("");
+    const[img,imgchange]=useState("");
 
-    const EditMyPost=(data)=>{
-        if(getMyId){
-            fetch(`${baseURL}/posts/${getMyIdII}`,{
-                method:'PUT',
-                headers: { "Content-Type": "application/json", "Authorization":`Bearer ${getMytoken}`},
-                body: JSON.stringify({
-                    autor:data.autor,
-                    title:data.title,
-                    desc:data.desc,
-                    img:data.img}),  
-                }).then((response) => response.json())
-                .then((response) => {
-                  console.log("Post actualizado exitosamente ", response);
-                  navigate("/home")
-                }).catch(() => {
-                  alert("fallo el metodo Fetch");
-                });          
-        }
-    }
+    const navigate=useNavigate();
+
+    const handlesubmit=(e)=>{
+        e.preventDefault();
+        const empdata={id,title,desc,img};
+        
+  
+        fetch(`${baseURL}/posts/${getMyIdII}`,{
+          method:"PUT",
+          headers: { "Content-Type": "application/json", "Authorization":`Bearer ${getMytoken}` },
+          body:JSON.stringify(empdata)
+        }).then((res)=>{
+          alert('updated successfully.')
+          navigate('/home');
+        }).catch((err)=>{
+          console.log(err.message)
+        })
+  
+      }
     
    
-
+   
+      
     return(
         <>
-        
+        {title}
        <div className="container-fluid">
             <nav className="navbar navbar-expand-lg bg-body-tertiary"> 
             <div className="container-fluid flex-nowrap">
@@ -81,18 +93,22 @@ export default function Edit(){
                         
                             <div className="row">
                         <div className="col-12 col-md-5">
-                            <form className="bg-dark text-white border rounded p-3 mb-3">
+                            <form onSubmit={handlesubmit} className="bg-dark text-white border rounded p-3 mb-3">
                                 <div className="form-group mb-3">
                                     <label htmlFor="">autor</label>
-                                    <input name="autor" required id="autor" type="text"  className="form-control"
+                                    <input name="autor" required id="autor" type="text" 
+                                     className="form-control"
                                      placeholder="Autor"/>
                                     
                                 </div>
                                 
                                 <div className="form-group mb-3">
                                     <label htmlFor="">titulo</label>
-                                    <input name="titulo"  id="titulo" type="text"  className="form-control" 
-                                    placeholder={posts.title}/>
+                                    <input name="titulo"  id="titulo" type="text" 
+                                    value={title} 
+                                    onChange={e=>titlechange(e.target.value)}
+                                    className="form-control" 
+                                    />
                                    
                                 </div>
                                 <div className="form-group mb-3">
@@ -104,17 +120,20 @@ export default function Edit(){
                                 <div className="form-group mb-3">
                                     <label htmlFor="">Foto</label>
                                     <input name="picture" id="picture" type="text"  className="form-control"
-                                    placeholder={posts.img}
+                                    value={img} 
+                                    onChange={e=>imgchange(e.target.value)}
                                     />
                                     
                                 </div>
                                 <div className="form-group mb-3">
                                     <label htmlFor="">PostBody</label> 
                                 <input type="text" className="form-control" id="postBody"  name="postBody" 
-                                placeholder={posts.desc}/>
+                                value={desc} 
+                                onChange={e=>deschange(e.target.value)}
+                                />
                                 </div>
                                 <div className='haciendoFlex'>
-                                <button className='save-card'  onClick={EditMyPost}>Edit Card</button>
+                                <button className='save-card'  type='submit'>Edit Card</button>
                                 <button  className="return-Post" onClick={e =>{
                                                    e.preventDefault();
                                                    window.location.replace('/Home');
